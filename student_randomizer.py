@@ -77,14 +77,9 @@ def pick_students(stu_list: list, num_students: int, group: int = None):
     
     # check if the group is being filtered
     if group is not None:
-        for student in stu_list:
-
-            # filter the group and remove other students from list
-            if student.group != group:
-                stu_list.remove(student)
+        stu_list = [student for student in stu_list if student.group == group]
 
 
-       
     random_students = []        
     for index in range(num_students):
 
@@ -126,7 +121,7 @@ if __name__ == "__main__":
     # pprint(len(group2))
     # print()
 
-    random_students = pick_students(students, num_students=4, group=None)
+    random_students = pick_students(students, num_students=10, group=2)
     pprint(random_students)
 
 
